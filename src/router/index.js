@@ -1,5 +1,4 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-// import Home from '@/views/Home.vue'
 const routes = [
   {
     path: '/:pathMatch(.*)*', // router 4
@@ -95,7 +94,6 @@ const routes = [
 ];
 
 const router = createRouter({
-  // history: createWebHistory(process.env.BASE_URL),
   history: createWebHashHistory(),
   linkActiveClass: 'active',
   routes
