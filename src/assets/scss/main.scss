@@ -1,0 +1,94 @@
+html {
+  min-height: 100%;
+  position:relative;
+}
+// body {
+//   // margin-bottom: 200px;
+// }
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0
+}
+.card-yearColor {
+  color: #00000099;
+  font-size: 12px;
+}
+.card-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card-shadow{
+  box-shadow:3px 3px 4px rgb(0 0 0 / 20%);
+  cursor: pointer;
+}
+
+.img-size {
+  max-width: 100%;
+  height: 320px;
+}
+
+.no-data-pic-size {
+  font-size: 60px;
+}
+
+// reset sort
+.resetSort_size {
+  font-size: 14px;
+}
+
+// font-size
+.fz-0 {
+  font-size: 16px;
+}
+.fz-1 {
+  font-size: 20px;
+}
+.fz-2 {
+  font-size: 24px;
+}
+.fz-3 {
+  font-size: 28px;
+}
+.fz-4 {
+  font-size: 32px;
+}
+.fz-5 {
+  font-size: 36px;
+}
+.fz-6 {
+  font-size: 40px;
+}
+
+@media screen and (max-width:768px) {
+  // fz *0.7
+  .fz-0 {
+    font-size: 12px;
+  }
+  .fz-1 {
+    font-size: 14px;
+  }
+  .fz-2 {
+    font-size: 16px;
+  }
+  .fz-3 {
+    font-size: 20px;
+  }
+  .fz-4 {
+    font-size: 25px;
+  }
+  .fz-5 {
+    font-size: 28px;
+  }
+  .fz-6 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width:430px) {
+  .img-size{
+    height: 250px;
+  }
+}
