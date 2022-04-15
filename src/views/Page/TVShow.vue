@@ -74,7 +74,7 @@
     <!-- <button @click="test">test</button> -->
   </div>
   <div class="container">
-    <div class="row">
+    <div class="row" v-if="getUserPostData.length > 0">
       <div
         class="col-6 col-md-4 col-lg-3 col-xl-2 px-1 my-1 my-sm-2"
         v-for="(item, key) in getUserPostData"
@@ -122,11 +122,9 @@
       </div>
     </div>
     <!-- show no data message -->
-    <div v-if="getUserPostData.length == 0">
-      <div v-if="sort !== 'all'" class="my-5">
-        <i class="bi bi-film no-data-pic-size"></i>
-        <h1 class="my-5">尚無資料</h1>
-      </div>
+    <div v-else class="my-5">
+      <i class="bi bi-film no-data-pic-size"></i>
+      <h1 class="my-5">尚無資料</h1>
     </div>
   </div>
   <Footer class="footer mt-5" />
@@ -194,10 +192,6 @@ export default {
 </script>
 
 <style scoped>
-.img-size {
-  height: 320px;
-}
-
 .list {
   overflow-x: auto;
   white-space: nowrap;
@@ -216,9 +210,9 @@ a,
 }
 
 .bb_red {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #f36793;
 }
 .bb_green {
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid #6fff00;
 }
 </style>

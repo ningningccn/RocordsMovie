@@ -87,6 +87,11 @@ footer{
   }
 }
 
+@media screen and (max-width:768px) {
+  .img-size{
+    height: 380px;
+  }
+}
 @media screen and (max-width:430px) {
   .img-size{
     height: 250px;

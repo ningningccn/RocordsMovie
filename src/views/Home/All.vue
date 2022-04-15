@@ -11,14 +11,14 @@
     />
   </div>
   <div class="container">
-    <div class="row">
+    <div class="row" v-if="userPostData.length > 0">
       <div
         class="col-6 col-md-4 col-lg-3 col-xl-2 px-1 my-1 my-sm-2"
         v-for="(item, key) in userPostData"
         :key="key"
       >
         <div
-          class="card card-shadow"
+          class="card card-shadow card_shadow_green"
           :class="{
             bb_red: item[1].watched == 0,
             bb_green: item[1].watched == 1,
@@ -78,6 +78,10 @@
         </div>
       </div>
     </div>
+    <div class="my-5" v-else>
+      <i class="bi bi-film no-data-pic-size"></i>
+      <h1 class="my-5">尚無資料</h1>
+    </div>
   </div>
 </template>
 <script>
@@ -125,14 +129,10 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  box-shadow: 3px 3px 4px rgb(0 0 0 / 20%);
-  cursor: pointer;
-}
 .bb_red {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #f36793;
 }
 .bb_green {
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid #6fff00;
 }
 </style>

@@ -11,9 +11,9 @@
     />
   </div>
   <div class="container">
-    <div class="row">
+    <div class="row " v-if="userPostData.length > 0">
       <div
-        class="col-4 col-md-2 px-1 my-1 my-sm-2"
+        class="col-6 col-md-4 col-lg-3 col-xl-2 px-1 my-1 my-sm-2"
         v-for="(item, key) in userPostData"
         :key="key"
       >
@@ -78,6 +78,10 @@
         </div>
       </div>
     </div>
+    <div class="my-5" v-else>
+      <i class="bi bi-film no-data-pic-size"></i>
+      <h1 class="my-5">尚無資料</h1>
+    </div>
   </div>
 </template>
 
@@ -129,9 +133,9 @@ export default {
 
 <style scoped>
 .bb_red {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #f36793;
 }
 .bb_green {
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid #6fff00;
 }
 </style>

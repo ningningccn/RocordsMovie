@@ -61,7 +61,7 @@
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">新增記錄</h5>
@@ -100,7 +100,7 @@
                     </div>
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text">觀看日期</span>
+                    <span class="input-group-text">紀錄日期</span>
                     <input
                       type="date"
                       class="form-control"
@@ -343,7 +343,7 @@
 
         <!-- offcanvas -->
         <div class="offcanvas offcanvas-start" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
+          <div class="navbar-nav h-100">
             <button
               type="button"
               class="btn-close btn-close-white ms-auto me-3 my-2"
@@ -356,7 +356,10 @@
             >
             <router-link class="offcanvas_link" to="/tvShow">綜藝</router-link>
             <router-link class="offcanvas_link" to="/cartoon">動漫</router-link>
-            <router-link class="offcanvas_link" to="" @click.prevent="logout()"
+            <router-link
+              class="offcanvas_link mt-auto"
+              to=""
+              @click.prevent="logout()"
               >登出</router-link
             >
           </div>
@@ -423,14 +426,35 @@ export default {
       });
       this.$router.push(`/login`);
     },
-      // show Img
+    // show Img
     handleFile(e) {
       let vm = this;
       vm.File = e.target.files[0];
       var reader = new FileReader();
       reader.readAsDataURL(vm.File);
       reader.onload = (e) => {
-        this.showImg = e.target.result;
+        vm.showImg = e.target.result;
+        var image = new Image();
+        image.src = e.target.result;
+        image.onload = () => {
+          var width = image.width;
+          var height = image.height;
+          console.log("width: ", width);
+          console.log("height: ", height);
+          console.log(width < 420);
+          console.log(height < 420);
+          console.log(width < height);
+
+          if (width > height) {
+            alert("圖片比例不對");
+            vm.showImg = "";
+            return;
+          }
+          if (width < 420 && height < 500) {
+            vm.showImg = "";
+            alert("圖片尺寸沒有420 * 500 ");
+          }
+        };
       };
     },
     openModal() {
@@ -449,16 +473,16 @@ export default {
     addDb() {
       return new Promise((resolve, reject) => {
         if (this.File) {
-          this.isDisable = true,
-          this.isLoading = true,
-          uploadBytes(storageRef(storage, `${this.File.name}`), this.File)
-            .then(() => {
-              resolve(`Uploaded a blob or file!`);
-              // console.log(`Uploaded a blob or file!`)
-            })
-            .catch((error) => {
-              reject(error);
-            });
+          (this.isDisable = true),
+            (this.isLoading = true),
+            uploadBytes(storageRef(storage, `${this.File.name}`), this.File)
+              .then(() => {
+                resolve(`Uploaded a blob or file!`);
+                // console.log(`Uploaded a blob or file!`)
+              })
+              .catch((error) => {
+                reject(error);
+              });
         } else {
           console.log("return");
           alert("error");
@@ -487,25 +511,12 @@ export default {
         if (user) {
           const newKey = push(child(fireRef(db), "post")).key;
           set(fireRef(db, `/user/${user.uid}/post/` + newKey), vm.moviePost);
-          this.isDisable = false,
-          this.isLoading = false,
-          vm.Modal.hide();
+          (this.isDisable = false), (this.isLoading = false), vm.Modal.hide();
           vm.reload();
         } else {
           vm.Modal.hide();
         }
       });
-      // this.moviePost.inputMainValue = null;
-      // this.moviePost.inputChildValue = null;
-      // this.moviePost.inputAreaValue = null;
-      // this.moviePost.movieName = "";
-      // this.moviePost.year = "";
-      // this.moviePost.set = "";
-      // this.moviePost.mark = 0;
-      // this.moviePost.favorite = 0;
-      // this.moviePost.watched = 1;
-      // this.moviePost.url = "";
-      // this.showImg = "";
     },
     removeImg() {
       this.showImg = "";

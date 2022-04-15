@@ -101,7 +101,7 @@
                 </div>
               </div>
 
-              <div>觀看日期: {{ postData.watchDate }}</div>
+              <div>紀錄日期: {{ postData.watchDate }}</div>
             </div>
             <!-- watched or favorite-->
             <div class="fz-0 d-flex">
@@ -290,6 +290,7 @@ export default {
     Header,
     Footer,
   },
+  inject: ["reload"],
   data() {
     return {
       postData: {},
@@ -300,6 +301,11 @@ export default {
     };
   },
   methods: {
+    pushRouter(id) {
+      console.log("id: ", id);
+      this.$router.push(`/post_detail/${id}`);
+      this.reload();
+    },
     getDetail() {
       const dbRef = ref(db);
       get(child(dbRef, `/user/${this.uid}/post/${this.number}`))
@@ -382,7 +388,6 @@ export default {
           return item[1].inputMainValue == type && item[0] != postID;
         });
       let filterB = filterA.filter((item, index) => {
-        console.log(6 > index);
         return this.page * this.itemsPerPage > index;
       });
       return filterB;
@@ -397,7 +402,6 @@ export default {
     var tooltipTriggerList = [].slice.call(
       document.querySelectorAll('[data-bs-toggle="tooltip"]')
     );
-    console.log(tooltipTriggerList);
     tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new Tooltip(tooltipTriggerEl, { container: tooltipTriggerEl });
     });
@@ -453,9 +457,13 @@ export default {
 }
 
 .bb_red {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #ff0050;
 }
 .bb_green {
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid #6fff00;
+}
+
+.toastBgColor{
+  background-color: #Ecfdf5;
 }
 </style>
