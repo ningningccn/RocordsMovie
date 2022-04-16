@@ -94,6 +94,11 @@ footer{
 }
 @media screen and (max-width:430px) {
   .img-size{
-    height: 250px;
+    height: 300px;
+  }
+}
+@media screen and (max-width:400px) {
+  .img-size{
+    height: 280px;
   }
 }
