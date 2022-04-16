@@ -44,7 +44,7 @@
             </form>
             <!-- forget password -->
             <div class="mt-3">
-              <a href="#" @click="forget()"><b>忘記密碼？</b></a>
+              <a href="#" @click.prevent="forget()"><b>忘記密碼？</b></a>
             </div>
             <hr />
             <!-- sign up -->
@@ -102,7 +102,7 @@
 
                       <button
                         class="w-50 btn mt-4 btn-signUp p-2"
-                        @click.prevent="signUp"
+                        @click.prevent="signUp()"
                       >
                         <b>註冊</b>
                       </button>
@@ -163,11 +163,9 @@ export default {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed in
-          console.log(userCredential);
           const user = userCredential.user;
           console.log("user: ", user);
           this.$router.push(`/`);
-          console.log(123);
         })
         .catch((error) => {
           const errorCode = error.code;

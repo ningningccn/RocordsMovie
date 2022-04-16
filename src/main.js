@@ -11,8 +11,8 @@ import "bootstrap";
 import { auth } from "@/db";
 import { onAuthStateChanged } from "firebase/auth";
 router.beforeEach((to, from, next) => {
-  console.log("to.meta.requiresAuth: ", to.meta.requiresAuth);
   if (to.meta.requiresAuth) {
+    console.log('to.meta.requiresAuth: ', to.meta.requiresAuth);
     console.log(`這需要認證`);
     onAuthStateChanged(auth, (user) => {
       if (user) {

@@ -115,7 +115,6 @@ export default {
           return item[1].movieName.match(this.searchText);
         });
       let filterB = filterA.filter((item, index) => {
-        console.log(6 > index);
         return this.page * this.itemsPerPage > index;
       });
       return filterB;

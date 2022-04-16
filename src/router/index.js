@@ -1,7 +1,7 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from "vue-router";
 const routes = [
   {
-    path: '/:pathMatch(.*)*', // router 4
+    path: "/:pathMatch(.*)*", // router 4
     redirect: "login",
   },
   {
@@ -95,8 +95,8 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  linkActiveClass: 'active',
-  routes
-})
+  linkActiveClass: "active",
+  routes,
+});
 
-export default router
+export default router;
