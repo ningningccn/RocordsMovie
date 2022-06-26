@@ -62,7 +62,7 @@
                   <span v-if="item[1].inputAreaValue == 'Other'">其他</span>
                 </div>
                 <div class="ps-1">
-                  <span v-if="item[1].inputChildValue == 'tw'">大陸</span>
+                  <span v-if="item[1].inputChildValue == 'tw'">台灣</span>
                   <span v-if="item[1].inputChildValue == 'hk'">香港</span>
                   <span v-if="item[1].inputChildValue == 'cn'">大陸</span>
                   <span v-if="item[1].inputChildValue == 'kr'">韓國</span>
