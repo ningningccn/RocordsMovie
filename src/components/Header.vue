@@ -185,6 +185,7 @@
                       <option value="cn">陸劇</option>
                       <option value="kr">韓劇</option>
                       <option value="us">美劇</option>
+                      <option value="jp">日劇</option>
                       <option value="tw">台劇</option>
                       <option value="hk">港劇</option>
                     </select>
@@ -206,7 +207,7 @@
                       <option value="cn">大陸</option>
                       <option value="kr">韓國</option>
                       <option value="jp">日本</option>
-                      <option value="foreign">外國</option>
+                      <option value="other">其他</option>
                     </select>
                   </div>
                   <div class="input-group mb-3">

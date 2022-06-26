@@ -72,7 +72,7 @@
           <img :src="`${item[1].url}`" alt="" class="img-size" />
           <div class="py-2 px-3">
             <div class="d-flex justify-content-between">
-              <div class="fw-bold ellipsis">
+              <div class="fw-bold card-ellipsis">
                 {{ item[1].movieName }}
               </div>
               <div v-if="item[1].favorite == 1">
